@@ -9,7 +9,6 @@ const authDoctor = async (req, res, next) => {
         message: "Not Authorized Login Again",
       });
     }
-    console.log("Token in headers:", dtoken);
     const token_decode = jwt.verify(dtoken, process.env.JWT_SECRET);
     req.body.docId = token_decode.id;
     next();
